@@ -117,8 +117,8 @@ function LeetCodeHighlight() {
       <span style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
         {[
           { val: `${leetcodeStats.totalSolved.toLocaleString()} solved`, color: '#f59e0b' },
+          { val: `Top ${leetcodeStats.topPercentage}%`, color: '#22c55e' },
           { val: `${leetcodeStats.contestRating} rating`, color: '#818cf8' },
-          { val: `${leetcodeStats.maxStreak}d streak`, color: '#f97316' },
         ].map(({ val, color }) => (
           <span key={val} style={{
             fontFamily: 'JetBrains Mono, monospace',
