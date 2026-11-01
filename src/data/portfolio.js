@@ -22,9 +22,14 @@ export const leetcodeStats = {
   hard: 101,
   contestRating: 1763,
   globalRank: '88,449',
+  topPercentage: '10.13',
+  contestsAttended: 7,
   maxStreak: 320,
   badges: 17,
   activeDays: 362,
+  yearlySubmissions: 1662,
+  acceptanceRate: '56.78',
+  notableBadges: ['500 Days Badge', '365 Days Badge', 'Annual Badge 2026'],
   profileUrl: 'https://leetcode.com/u/anand21314/',
 }
 
