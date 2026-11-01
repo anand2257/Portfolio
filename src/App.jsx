@@ -5,6 +5,7 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
+import Achievements from './components/Achievements'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -23,7 +24,6 @@ function App() {
       <main id="main-content">
         <Hero />
 
-        {/* Section dividers between sections */}
         <div className="section-divider" role="separator" aria-hidden="true" />
         <ProblemSolving />
 
@@ -38,6 +38,9 @@ function App() {
 
         <div className="section-divider" role="separator" aria-hidden="true" />
         <Experience />
+
+        <div className="section-divider" role="separator" aria-hidden="true" />
+        <Achievements />
 
         <div className="section-divider" role="separator" aria-hidden="true" />
         <Education />

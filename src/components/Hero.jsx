@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown, Terminal, Code2 } from 'lucide-react'
+import { ArrowDown, Terminal, Code2, Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './SocialIcons'
-import { profile } from '../data/portfolio'
+import { profile, leetcodeStats } from '../data/portfolio'
 
 const ROLES = [
-  'Full-Stack Engineer',
-  'AI Engineer',
   'Backend Developer',
-  'RAG Developer',
+  'Full-Stack Engineer',
+  'Applied AI Engineer',
+  'RAG & LLM Developer',
   'Problem Solver',
 ]
 
@@ -56,13 +56,13 @@ const CodeIllustration = () => (
         <span style={{ color: '#94a3b8' }}>name</span>: <span style={{ color: '#a78bfa' }}>"Divya Anand"</span>,
       </div>
       <div style={{ paddingLeft: 20 }}>
-        <span style={{ color: '#94a3b8' }}>stack</span>: [<span style={{ color: '#a78bfa' }}>"React"</span>, <span style={{ color: '#a78bfa' }}>"FastAPI"</span>, <span style={{ color: '#a78bfa' }}>"AI"</span>],
+        <span style={{ color: '#94a3b8' }}>stack</span>: [<span style={{ color: '#a78bfa' }}>"FastAPI"</span>, <span style={{ color: '#a78bfa' }}>"React"</span>, <span style={{ color: '#a78bfa' }}>"LangChain"</span>],
       </div>
       <div style={{ paddingLeft: 20 }}>
-        <span style={{ color: '#94a3b8' }}>passion</span>: <span style={{ color: '#a78bfa' }}>"Building with AI"</span>,
+        <span style={{ color: '#94a3b8' }}>leetcode</span>: <span style={{ color: '#f59e0b' }}>1140</span> <span style={{ color: '#475569' }}>/* problems */</span>,
       </div>
       <div style={{ paddingLeft: 20 }}>
-        <span style={{ color: '#94a3b8' }}>open</span>: <span style={{ color: '#2dd4bf' }}>true</span>,
+        <span style={{ color: '#94a3b8' }}>openTo</span>: <span style={{ color: '#2dd4bf' }}>true</span>,
       </div>
       <div>{'}'};</div>
       <br />
@@ -79,6 +79,61 @@ const CodeIllustration = () => (
     </div>
   </div>
 )
+
+// Mini LeetCode highlight for hero
+function LeetCodeHighlight() {
+  return (
+    <motion.a
+      href={profile.leetcode}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.6 }}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 14,
+        padding: '10px 16px',
+        borderRadius: 12,
+        background: 'rgba(245,158,11,0.06)',
+        border: '1px solid rgba(245,158,11,0.18)',
+        textDecoration: 'none',
+        marginTop: 20,
+        transition: 'border-color 0.2s, background 0.2s',
+        flexWrap: 'wrap',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.borderColor = 'rgba(245,158,11,0.4)'
+        e.currentTarget.style.background = 'rgba(245,158,11,0.1)'
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.borderColor = 'rgba(245,158,11,0.18)'
+        e.currentTarget.style.background = 'rgba(245,158,11,0.06)'
+      }}
+      aria-label="View LeetCode profile"
+    >
+      <Code2 size={16} style={{ color: '#f59e0b', flexShrink: 0 }} />
+      <span style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+        {[
+          { val: `${leetcodeStats.totalSolved.toLocaleString()} solved`, color: '#f59e0b' },
+          { val: `${leetcodeStats.contestRating} rating`, color: '#818cf8' },
+          { val: `${leetcodeStats.maxStreak}d streak`, color: '#f97316' },
+        ].map(({ val, color }) => (
+          <span key={val} style={{
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '0.78125rem',
+            color,
+            fontWeight: 700,
+          }}>
+            {val}
+          </span>
+        ))}
+        <span style={{ fontSize: '0.75rem', color: '#475569' }}>· LeetCode ↗</span>
+      </span>
+    </motion.a>
+  )
+}
 
 export default function Hero() {
   const typedRole = useTypingCycle(ROLES)
@@ -137,7 +192,7 @@ export default function Hero() {
               }}
             >
               <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#2dd4bf', animation: 'pulse-glow 2s infinite' }} />
-              Graduate Engineer Trainee · KSquare
+              Graduate Engineer Trainee · The Ksquare Group
             </motion.div>
 
             {/* Name */}
@@ -186,18 +241,21 @@ export default function Hero() {
                 color: '#94a3b8',
                 lineHeight: 1.75,
                 maxWidth: 520,
-                marginBottom: 40,
+                marginBottom: 36,
               }}
             >
               {profile.tagline}
             </motion.p>
 
+            {/* LeetCode Achievement highlight */}
+            <LeetCodeHighlight />
+
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginBottom: 40 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 32, marginBottom: 28 }}
             >
               <a href="#projects" className="btn-primary" id="hero-view-projects" onClick={e => {
                 e.preventDefault()
@@ -206,18 +264,9 @@ export default function Hero() {
                 <Terminal size={16} />
                 View Projects
               </a>
-              <a
-                href="https://leetcode.com/anand21314"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-                id="hero-view-leetcode"
-              >
-                <Code2 size={16} />
-                View LeetCode Profile
-              </a>
               <a href={`mailto:${profile.email}`} className="btn-secondary" id="hero-contact">
-                Contact Me
+                <Mail size={16} />
+                Get in Touch
               </a>
             </motion.div>
 
@@ -225,8 +274,8 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.55 }}
-              style={{ display: 'flex', gap: 14 }}
+              transition={{ duration: 0.7, delay: 0.65 }}
+              style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}
             >
               <a href={profile.github} target="_blank" rel="noopener noreferrer" className="btn-ghost" id="hero-github">
                 <GithubIcon size={16} />
@@ -235,6 +284,10 @@ export default function Hero() {
               <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="btn-ghost" id="hero-linkedin">
                 <LinkedinIcon size={16} />
                 LinkedIn
+              </a>
+              <a href={profile.leetcode} target="_blank" rel="noopener noreferrer" className="btn-ghost" id="hero-leetcode">
+                <Code2 size={16} />
+                LeetCode
               </a>
             </motion.div>
           </div>
@@ -267,7 +320,7 @@ export default function Hero() {
             letterSpacing: '0.08em',
             cursor: 'pointer',
           }}
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById('problem-solving')?.scrollIntoView({ behavior: 'smooth' })}
         >
           <span>scroll down</span>
           <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>

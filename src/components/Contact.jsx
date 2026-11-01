@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import { profile } from '../data/portfolio'
-import { Mail, MessageSquare, Send } from 'lucide-react'
+import { Mail, MessageSquare, Send, Code2 } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './SocialIcons'
 
 export default function Contact() {
@@ -15,7 +15,7 @@ export default function Contact() {
       value: profile.email,
       href: `mailto:${profile.email}`,
       color: '#6366f1',
-      description: 'Reach out directly for opportunities or collaboration',
+      description: 'Reach out directly for full-time roles, internships, or collaboration',
     },
     {
       id: 'contact-github',
@@ -24,16 +24,25 @@ export default function Contact() {
       value: 'github.com/anand2257',
       href: profile.github,
       color: '#94a3b8',
-      description: 'Browse my code, projects, and contributions',
+      description: 'Browse my code, projects, and open source contributions',
     },
     {
       id: 'contact-linkedin',
       icon: <LinkedinIcon size={20} />,
       label: 'LinkedIn',
-      value: profile.linkedin.replace(/^https?:\/\//, ''),
+      value: 'linkedin.com/in/anand2257',
       href: profile.linkedin,
       color: '#2dd4bf',
       description: 'Connect professionally and view my experience',
+    },
+    {
+      id: 'contact-leetcode',
+      icon: <Code2 size={20} />,
+      label: 'LeetCode',
+      value: 'leetcode.com/u/anand21314',
+      href: profile.leetcode,
+      color: '#f59e0b',
+      description: '1,140+ problems · Rating 1,763 · Max streak 320 days',
     },
   ]
 
@@ -49,10 +58,11 @@ export default function Contact() {
           <div className="section-tag" style={{ margin: '0 auto 20px' }}>Contact</div>
           <h2 className="section-title">Let's Connect</h2>
           <p style={{ fontSize: '1.0625rem', color: '#94a3b8', maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
-            I'm open to full-time roles, internships, and interesting projects.
-            Feel free to reach out — I respond to all messages.
+            I'm actively looking for full-time software engineering roles at product-based companies.
+            Open to backend, full-stack, and applied AI positions — feel free to reach out.
           </p>
         </motion.div>
+
 
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
           {/* Contact links */}

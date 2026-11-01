@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import { experience } from '../data/portfolio'
-import { Briefcase, MapPin, Calendar } from 'lucide-react'
+import { Briefcase, MapPin, Calendar, ExternalLink } from 'lucide-react'
 
 export default function Experience() {
   const [ref, inView] = useInView({ threshold: 0.15 })
@@ -17,7 +17,7 @@ export default function Experience() {
           <div className="section-tag">Experience</div>
           <h2 className="section-title">Work Experience</h2>
           <p className="section-subtitle">
-            Professional experience in software engineering and forward-deployed roles.
+            Professional engineering experience building software solutions in a forward-deployed team environment.
           </p>
         </motion.div>
 
@@ -44,7 +44,7 @@ export default function Experience() {
               <div style={{
                 position: 'absolute',
                 left: 19,
-                top: 24,
+                top: 28,
                 width: 12,
                 height: 12,
                 borderRadius: '50%',
@@ -80,20 +80,24 @@ export default function Experience() {
                 {/* Company & role */}
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, marginBottom: 16 }}>
                   <div style={{
-                    width: 44, height: 44, borderRadius: 12,
+                    width: 48, height: 48, borderRadius: 12,
                     background: 'linear-gradient(135deg, rgba(99,102,241,0.2), rgba(45,212,191,0.1))',
                     border: '1px solid rgba(99,102,241,0.25)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexShrink: 0,
+                    fontSize: '1.25rem',
                   }}>
-                    <Briefcase size={18} style={{ color: '#6366f1' }} />
+                    🏢
                   </div>
                   <div>
                     <h3 style={{ fontSize: '1.125rem', fontWeight: 800, color: '#f1f5f9', marginBottom: 2 }}>
                       {exp.role}
                     </h3>
                     <p style={{ fontSize: '0.9375rem', fontWeight: 600, color: '#6366f1' }}>
-                      {exp.company} · {exp.department}
+                      {exp.company}
+                    </p>
+                    <p style={{ fontSize: '0.8125rem', color: '#64748b', fontWeight: 500 }}>
+                      {exp.department}
                     </p>
                   </div>
                 </div>
@@ -117,9 +121,18 @@ export default function Experience() {
                   </span>
                 </div>
 
-                <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.75 }}>
+                <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.75, marginBottom: 16 }}>
                   {exp.description}
                 </p>
+
+                {/* Highlight tags */}
+                {exp.highlights && (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    {exp.highlights.map(h => (
+                      <span key={h} className="tech-tag">{h}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

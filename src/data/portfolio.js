@@ -5,12 +5,27 @@
 export const profile = {
   name: 'Divya Anand',
   role: 'Graduate Engineer Trainee',
-  roleCompany: 'Forward Deployed Engineering · KSquare',
-  tagline: "I'm a software engineer focused on building full-stack applications and AI-powered products, with a strong foundation in Data Structures & Algorithms and competitive programming.",
+  roleCompany: 'Forward Deployed Engineering · The Ksquare Group',
+  tagline:
+    "Backend-focused full-stack engineer and AI practitioner — I build production-grade REST APIs, real-time systems, and RAG pipelines, with 1,140+ LeetCode problems solved and a strong foundation in Data Structures & Algorithms.",
   email: 'anand6780hyd@gmail.com',
   github: 'https://github.com/anand2257',
   linkedin: 'https://linkedin.com/in/anand2257',
+  leetcode: 'https://leetcode.com/u/anand21314/',
   resumePath: null, // Set to '/resume.pdf' once you add the file to /public
+}
+
+export const leetcodeStats = {
+  totalSolved: 1140,
+  easy: 487,
+  medium: 668,
+  hard: 101,
+  contestRating: 1763,
+  globalRank: '88,449',
+  maxStreak: 320,
+  badges: 17,
+  activeDays: 362,
+  profileUrl: 'https://leetcode.com/u/anand21314/',
 }
 
 export const projects = [
@@ -67,7 +82,7 @@ export const projects = [
       'An end-to-end system that collects official Indian government and news content via RSS, stores it in PostgreSQL, and uses Google Gemini to generate source-grounded, exam-oriented multiple-choice questions for competitive exams such as SSC, RRB NTPC, Banking, UPSC, APPSC, and TSPSC.',
     longDescription:
       'FastAPI backend with APScheduler for daily ingestion at 06:00 IST. Rule-based keyword classifier assigns categories and regions. Gemini generates MCQs with explanations and evidence passages. React + Vite frontend features a Dashboard, an Articles & MCQs browser, and an Ingestion Monitor. Human review API workflow before questions are approved.',
-    tech: ['FastAPI', 'Python', 'React 19', 'TypeScript', 'Vite', 'Google Gemini', 'SQLModel', 'PostgreSQL', 'LangChain (feedparser)', 'APScheduler'],
+    tech: ['FastAPI', 'Python', 'React 19', 'TypeScript', 'Vite', 'Google Gemini', 'SQLModel', 'PostgreSQL', 'LangChain', 'APScheduler'],
     github: 'https://github.com/anand2257/government-exam-current-affairs-ai',
     live: null,
     color: '#f59e0b',
@@ -77,11 +92,6 @@ export const projects = [
 ]
 
 export const skills = [
-  {
-    category: 'Problem Solving',
-    icon: '</>',
-    items: ['Data Structures & Algorithms', 'Problem Solving', 'Competitive Programming'],
-  },
   {
     category: 'Languages',
     icon: '{ }',
@@ -100,7 +110,7 @@ export const skills = [
   {
     category: 'AI / ML',
     icon: '🧠',
-    items: ['LangChain', 'LangGraph', 'Google Gemini', 'RAG', 'AI Integrations'],
+    items: ['LangChain', 'LangGraph', 'Google Gemini', 'RAG', 'ChromaDB', 'Embeddings', 'LLM APIs'],
   },
   {
     category: 'Databases',
@@ -110,20 +120,30 @@ export const skills = [
   {
     category: 'Tools & Platforms',
     icon: '⬡',
-    items: ['Git', 'GitHub', 'Docker', 'Vercel', 'Postman', 'VS Code'],
+    items: ['Git', 'GitHub', 'Docker', 'Vercel', 'Postman', 'Socket.IO', 'Cloudinary'],
+  },
+  {
+    category: 'Problem Solving',
+    icon: '</\u003e',
+    items: ['Data Structures & Algorithms', 'Competitive Programming', 'System Design'],
   },
 ]
 
 export const experience = [
   {
-    company: 'KSquare',
+    company: 'The Ksquare Group',
     role: 'Graduate Engineer Trainee',
     department: 'Forward Deployed Engineering',
     location: 'Hyderabad, India',
     period: 'September 2026 – Present',
     type: 'Full-time',
     description:
-      'Working as a Graduate Engineer Trainee in the Forward Deployed Engineering team at KSquare, contributing to engineering initiatives and building software solutions.',
+      'Working as a Graduate Engineer Trainee in the Forward Deployed Engineering team at The Ksquare Group. Contributing to engineering initiatives, building software solutions, and developing technical skills across modern web and AI-powered application development.',
+    highlights: [
+      'Forward Deployed Engineering team',
+      'Full-stack application development',
+      'AI-powered solutions',
+    ],
     current: true,
   },
 ]
@@ -136,5 +156,40 @@ export const education = [
     location: 'Bhimavaram, Andhra Pradesh',
     period: 'August 2023 – May 2027',
     current: true,
+  },
+]
+
+export const achievements = [
+  {
+    id: 'cp-champion',
+    title: 'University Competitive Programming Championship',
+    subtitle: 'First Place',
+    description: 'Won first place in the university-wide competitive programming championship, demonstrating top-tier algorithmic problem-solving skills.',
+    icon: '🏆',
+    color: '#f59e0b',
+  },
+  {
+    id: 'smart-coder',
+    title: 'Smart Coder Program',
+    subtitle: 'Smart Interviews Selection',
+    description: 'Selected for the Smart Coder Program by Smart Interviews, recognizing strong performance in DSA and competitive programming assessments.',
+    icon: '⭐',
+    color: '#6366f1',
+  },
+  {
+    id: 'girlscript',
+    title: 'GirlScript Summer of Code 2026',
+    subtitle: 'Open Source Contributor',
+    description: 'Active contributor in GirlScript Summer of Code 2026 (GSSoC), collaborating on real-world open source projects and contributing meaningful code changes.',
+    icon: '🌐',
+    color: '#2dd4bf',
+  },
+  {
+    id: 'pytorch-hackathon',
+    title: 'Meta PyTorch OpenEnv Hackathon',
+    subtitle: 'Participant',
+    description: 'Participated in the Meta PyTorch OpenEnv Hackathon, building AI solutions using PyTorch and exploring cutting-edge machine learning frameworks.',
+    icon: '🔥',
+    color: '#a78bfa',
   },
 ]

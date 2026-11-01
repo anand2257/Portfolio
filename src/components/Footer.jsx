@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Nav quick links */}
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            {['Problem Solving', 'About', 'Skills', 'Projects', 'Experience', 'Education', 'Contact'].map(label => (
+            {['Problem Solving', 'About', 'Skills', 'Projects', 'Experience', 'Achievements', 'Education', 'Contact'].map(label => (
               <a
                 key={label}
                 href={`#${label.toLowerCase().replaceAll(' ', '-')}`}

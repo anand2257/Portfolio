@@ -299,6 +299,13 @@ body::before {
   gap: 20px;
 }
 
+/* ── Achievements section ── */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
 .problem-stat-card {
   min-width: 0;
   min-height: 220px;
@@ -600,6 +607,12 @@ body::before {
   backdrop-filter: blur(2px);
 }
 
+@media (max-width: 1023px) {
+  .problem-solving-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 767px) {
   .problem-solving-section {
     padding: 76px 0;
@@ -611,8 +624,12 @@ body::before {
   }
 
   .problem-stat-card {
-    min-height: 200px;
-    padding: 22px;
+    min-height: 180px;
+    padding: 20px;
+  }
+
+  .section-subtitle {
+    margin-bottom: 40px;
   }
 }
 
